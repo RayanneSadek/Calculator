@@ -4,15 +4,15 @@ def ask_number(script):
         try:
             input_user = input(script).strip()
 
-            if input_user == "":
+            if input_user == "":# Gestion des absences d'entrées
                 print("Vous n'avez pas entré le nombre demandé")
                       
                 continue
             
-            input_number = input_user.replace(',','.')
-            number = float(input_number)
+            input_number = input_user.replace(',','.') #Remplace les , par des . pour la conformité
+            number = float(input_number)#transformation de la string en float
             
-            if number  ==int(number):
+            if number  ==int(number): # Suppression du .0 en cas d'entiers
                 return int(number)
             else:
                 return number
@@ -24,17 +24,17 @@ def operating(a, b, operator):
     match operator:
         case "+":
             result = a + b
-            if result == int(result):
+            if result == int(result): # Mute en entier quand un entier est renseigné
                 result = int(result)
             return result
         case "-":
             result = a - b
-            if result == int(result):
+            if result == int(result):# Mute en entier quand le résultat n'est pas un décimal
                 result = int(result)
             return result
         case "*":
             result = a * b
-            if result == int(result):
+            if result == int(result):# Mute en entier quand le résultat n'est pas un décimal
                 result = int(result)
             return result
         case "/":
@@ -42,15 +42,15 @@ def operating(a, b, operator):
                 print("Erreur: division par zéro impossible.")
                 return None
             result = a / b
-            if result == int(result):
+            if result == int(result):# Mute en entier quand le résultat n'est pas un décimal
                 result = int(result)
             return result
         case "//":
-            if b == 0:
+            if b == 0:# Gestion de la division par 0
                 print("Erreur division par zero impossible ")
                 return None
             result = a // b
-            if result == int(result):
+            if result == int(result):# Mute en entier quand le résultat n'est pas un décimal
                 result = int(result)
             return result
         case "%":
@@ -58,11 +58,11 @@ def operating(a, b, operator):
                 print("Erreur division par zero impossible ")
                 return None
             result = a % b
-            if result == int(result):
+            if result == int(result):# Mute en entier quand le résultat n'est pas un décimal
                 result = int(result)
             return result
         case _:
-            print("Erreur: opération inconnue.")
+            print("Erreur: opération inconnue.")#Gestion des erreurs d'entrées de décimal
             return None
 
 def calculator():
