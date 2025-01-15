@@ -5,7 +5,8 @@ def ask_number(script):
             input_user = input(script).strip()
 
             if input_user == "":
-                print("Vous n'avez pas entré le premier nombre")
+                print("Vous n'avez pas entré le nombre demandé")
+                      
                 continue
             
             input_number = input_user.replace(',','.')
@@ -84,7 +85,7 @@ def calculator():
             result = operating(a, b, operator)
             
             if result is not None:
-                print(f"Le résultat de {a} {operator} {b} est : {result}")
+                print(f"Le résultat de {a} {operator} {b} est : {result:.3f}")
 
              # Demander à l'utilisateur s'il souhaite continuer
             continuer = input("Souhaitez-vous effectuer une autre opération ? (oui/non) : ").strip().lower()
