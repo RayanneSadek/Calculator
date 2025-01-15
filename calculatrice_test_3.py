@@ -24,19 +24,28 @@ def operating(a, b, operator):
     match operator:
         case "+":
             result = a + b
-            if result == int(result): # Mute en entier quand un entier est renseigné
+            if result == int(result): # Mute en entier quand le résultat n'est pas un décimal
                 result = int(result)
-            return result
+                string = (f"{a} {operator} {b} = {result}")
+            else:
+                string = (f"{a} {operator} {b} = {result:.3f}")
+            print(string)
         case "-":
             result = a - b
             if result == int(result):# Mute en entier quand le résultat n'est pas un décimal
                 result = int(result)
-            return result
+                string = (f"{a} {operator} {b} = {result}")
+            else:
+                string = (f"{a} {operator} {b} = {result:.3f}")
+            print(string)
         case "*":
             result = a * b
             if result == int(result):# Mute en entier quand le résultat n'est pas un décimal
                 result = int(result)
-            return result
+                string = (f"{a} {operator} {b} = {result}")
+            else:
+                string = (f"{a} {operator} {b} = {result:.3f}")
+            print(string)
         case "/":
             if b == 0:
                 print("Erreur: division par zéro impossible.")
@@ -44,26 +53,32 @@ def operating(a, b, operator):
             result = a / b
             if result == int(result):# Mute en entier quand le résultat n'est pas un décimal
                 result = int(result)
-            return result
+                string = (f"{a} {operator} {b} = {result}")
+            else:
+                string = (f"{a} {operator} {b} = {result:.3f}")
+            print(string)
         case "//":
             if b == 0:# Gestion de la division par 0
                 print("Erreur division par zero impossible ")
-                return None
             result = a // b
             if result == int(result):# Mute en entier quand le résultat n'est pas un décimal
                 result = int(result)
-            return result
+                string = (f"{a} {operator} {b} = {result}")
+            else:
+                string = (f"{a} {operator} {b} = {result:.3f}")
+            print(string)
         case "%":
             if b == 0:
                 print("Erreur division par zero impossible ")
-                return None
             result = a % b
             if result == int(result):# Mute en entier quand le résultat n'est pas un décimal
                 result = int(result)
-            return result
+                string = (f"{a} {operator} {b} = {result}")
+            else:
+                string = (f"{a} {operator} {b} = {result:.3f}")
+            print(string)
         case _:
             print("Erreur: opération inconnue.")#Gestion des erreurs d'entrées de décimal
-            return None
 
 def calculator():
         """ Fonction principale pour exécuter la calculatrice. """
@@ -84,8 +99,7 @@ def calculator():
             # Effectuer l'opération et afficher le résultat
             result = operating(a, b, operator)
             
-            if result is not None:
-                print(f"Le résultat de {a} {operator} {b} est : {result}")
+
 
              # Demander à l'utilisateur s'il souhaite continuer
             continuer = input("Souhaitez-vous effectuer une autre opération ? (oui/non) : ").strip().lower()

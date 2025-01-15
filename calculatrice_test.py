@@ -6,6 +6,7 @@ historique = {}
 def obtenir_heure_locale():
     local_time = time.localtime()
     return (local_time.tm_hour, local_time.tm_min, local_time.tm_sec, local_time.tm_mday, local_time.tm_mon, local_time.tm_year)
+
 def insert_number_1():
     while True:
         try:
