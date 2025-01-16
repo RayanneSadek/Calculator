@@ -2,7 +2,11 @@ def ask_number(script):
     """ Demande à l'utilisateur d'entrer un nombre et gère les erreurs. """
     while True:
         try:
-            return float(input(script).replace(",", "."))  # On accepte les entiers et les décimaux et remplace la virgule par un point
+            number= float(input(script).replace(",", "."))  # On accepte les entiers et les décimaux et remplace la virgule par un point
+            if number  == int(number): # Suppression du .0 en cas d'entiers
+                return int(number)
+            else:
+                return number
         except ValueError:
             print("Erreur: veuillez entrer un nombre valide.")
 
