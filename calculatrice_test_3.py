@@ -77,8 +77,11 @@ def operating(a, b, operator):
             else:
                 string = (f"{a} {operator} {b} = {result:.3f}")
             print(string)
+        case "":
+            print("vide")
         case _:
             print("Erreur: opération inconnue.")#Gestion des erreurs d'entrées de décimal
+  
 
 def calculator():
         """ Fonction principale pour exécuter la calculatrice. """
