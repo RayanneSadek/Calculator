@@ -19,6 +19,10 @@ def ask_number(script):
 history=[]
 index=1
 
+"""def delete_history():
+     history.clear
+     print("Historique effacé.")"""
+
 def ask_operator():
             operator = input("Entrez l'opération (+, -, *, **, /, //, %, sqr,H): ").strip()
             while operator not in ["+", "-", "*", "/", "//", "%", "**", "sqr","H"]:  # Vérification de l'opérateur valide
@@ -58,9 +62,12 @@ def calculator():
     while True:
         operator = ask_operator()
         if "H" in operator:
-                print("Historique:")
-                for i, op in enumerate(history, start=1):
-                    print(f"{i}. {op}")
+                if not history:
+                    print("Aucun historique disponible.")
+                else:
+                    print("Historique:")
+                    for i, op in enumerate(history, start=1):
+                        print(f"{i}. {op}")
                 continuer = input("Souhaitez-vous effectuer une autre opération ? (oui/non) : ").strip().lower()
                 if continuer != 'oui':
                     print("Merci d'avoir utilisé la calculatrice.")
