@@ -19,15 +19,15 @@ def ask_number(script):
 history=[]
 index=1
 
-"""def delete_history():
-     history.clear
-     print("Historique effacé.")"""
+def delete_history():
+     history.clear()
+     print("Historique effacé.")
 
 def ask_operator():
-            operator = input("Entrez l'opération (+, -, *, **, /, //, %, sqr,H): ").strip()
-            while operator not in ["+", "-", "*", "/", "//", "%", "**", "sqr","H"]:  # Vérification de l'opérateur valide
+            operator = input("Entrez l'opération (+, -, *, **, /, //, %, sqr,H,D): ").strip()
+            while operator not in ["+", "-", "*", "/", "//", "%", "**", "sqr","H","D"]:  # Vérification de l'opérateur valide
                 print("Erreur: opérateur non valide.")
-                operator = input("Entrez l'opération (+, -, *, **, /, //, %, sqr, H): ").strip()
+                operator = input("Entrez l'opération (+, -, *, **, /, //, %, sqr, H, D): ").strip()
             return operator
 def operating(a, b, operator):
     """ Effectue l'opération demandée entre a et b. """
@@ -69,9 +69,15 @@ def calculator():
                     for i, op in enumerate(history, start=1):
                         print(f"{i}. {op}")
                 continuer = input("Souhaitez-vous effectuer une autre opération ? (oui/non) : ").strip().lower()
-                if continuer != 'oui':
+                if continuer == 'oui':
+                    continue
+                else :
                     print("Merci d'avoir utilisé la calculatrice.")
-                continue
+                    break
+
+        if "D" in operator:
+            delete_history()
+            continue
 
         # Demander les entrées
         a = ask_number("Entrez le premier nombre: ")
@@ -95,7 +101,7 @@ def calculator():
                 history.append(f"{a} {operator} {b} = {result}")
                 
         # Demander à l'utilisateur s'il souhaite continuer
-        continuer = input("Souhaitez-vous effectuer une autre opération ? (oui ou o pour continuer) : ").strip().lower()
+        continuer = input("Souhaitez-vous effectuer une autre opération ? (oui (o) ou non(n)) : ").strip().lower()
         if continuer not in ['oui', 'o']:
             print("Merci d'avoir utilisé la calculatrice.")
             break
