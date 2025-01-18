@@ -37,6 +37,23 @@ def show_result(operator, a, b, result):
 history = []
 index = 1
 
+def history_print():
+    if not history:
+        print("═══════════════════════════════════════════════════════")
+        print("                   ══ HISTORIQUE ══")
+        print("                 Aucun historique disponible.")
+        print("═══════════════════════════════════════════════════════")
+    else:
+        print("═══════════════════════════════════════════════════════")
+        print("                   ══ HISTORIQUE ══")
+        
+        print("")
+        print("N° Date          Heure       Opération")
+        print("───────────────────────────────────────────────────────")
+        for i, op in enumerate(history, start=1):
+            print(f"{i}. {op['time']} | {op['operation']}")
+        print("═══════════════════════════════════════════════════════")
+
 def delete_history():
     """ Efface l'historique des opérations. """
     history.clear()
@@ -100,17 +117,8 @@ def calculator():
         operator = ask_operator()
         
         if operator == "H":
-            if not history:
-                print("═══════════════════════════════════════════════════════")
-                print("                   ══ HISTORIQUE ══")
-                print("                 Aucun historique disponible.")
-                print("═══════════════════════════════════════════════════════")
-            else:
-                print("═══════════════════════════════════════════════════════")
-                print("                   ══ HISTORIQUE ══")
-                for i, op in enumerate(history, start=1):
-                    print(f"{i}. {op['time']} | {op['operation']}")
-                print("═══════════════════════════════════════════════════════")
+            history_print()
+
             continuer = input("Souhaitez-vous effectuer une autre opération ? (oui/non) : ").strip().lower()
             if continuer == 'oui':
                 continue
