@@ -1,3 +1,6 @@
+import time
+
+
 def mute_integer(variable):
             if variable== int(variable): 
                 variable= int(variable)
@@ -54,8 +57,9 @@ def calculator():
 
     while True:
         # Demander les entrées
-        a = ask_number("Entrez le premier nombre: ")
         operator = ask_operator()
+        a = ask_number("Entrez le premier nombre: ")
+    
 
 
         # Si l'opération est une racine carrée, ne pas demander de deuxième nombre
